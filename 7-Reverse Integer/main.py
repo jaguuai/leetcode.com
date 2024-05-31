@@ -32,4 +32,22 @@ print(sol.reverse(123))    # Output: 321
 print(sol.reverse(-123))   # Output: -321
 print(sol.reverse(120))    # Output: 21
 print(sol.reverse(0))      # Output: 0
-print(sol.reverse(1534236469)) # Output: 0 (overflow case)
+print(sol.reverse(1534236469)) # Output: 0 (overflow case
+
+"""
+More useful code:
+class Solution:
+    def reverse(self, x: int) -> int:
+        MIN = - 2**31
+
+        ret = 0
+        sign = 1 if x > 0 else -1
+        x = abs(x)
+
+        while x > 0:
+            x, mod = divmod(x, 10)
+            ret = ret * 10 + mod
+        ret *= sign
+        
+        return ret if MIN <= ret <= -MIN-1 else 0
+"""
